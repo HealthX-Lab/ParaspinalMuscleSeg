@@ -1,10 +1,10 @@
 # ParaspinalMuscleSeg
 
 This repo contains the code for [Joint Paraspinal Muscle Segmentation and Inter-rater Labeling Variability Prediction with Multi-task TransUNet](https://link.springer.com/chapter/10.1007/978-3-031-16749-2_12). 
-Our model is a multi-task TransUNet that provides segmentation masks for paraspinal muscles (left and right erector spinae and multifidus) and predicts the pixel-wise variance map of the rater annotations. The tasks in our model have shared convolutional layers and task-specific transformers and decoders.
+Our model is a multi-task TransUNet that provides segmentation masks for paraspinal muscles (left and right erector spinae and multifidus) at the L3-L4,L4-L5, L5-S1, and S1 spinal levels and predicts the pixel-wise variance map of the rater annotations. The tasks in our model have shared convolutional layers and task-specific transformers and decoders.
 ![Figure-1](https://github.com/HealthX-Lab/ParaspinalMuscleSeg/assets/48385483/5673ba2d-e87a-4547-847c-e98671081340)
 ## Data Preparation
-We are not able to share the data due to the data sharing agreement, but the functions for calculating the variance maps and the majority vote masks are provided in utils.py. For more details about the data, please read the information in ["./data/README.md"](data/README.md).
+The network model was trained by using data from the European research consortium project, Genodisc, on commonly diagnosed lumbar pathologies (physiol.ox.ac.uk/genodisc). We are not able to share the data due to the data sharing agreement, but the functions for calculating the variance maps and the majority vote masks are provided in utils.py. For more details about the data, please read the information in ["./data/README.md"](data/README.md).
 ## Training the Model
 Similar to the [original training process of TransUNet](https://github.com/Beckschen/TransUNet/tree/main), we use command-line arguments to set the training parameters. A full list of the parameters can be found in the train script (train.py). If you want to use the default value for all of the parameters, you can simply run
 ```bash
